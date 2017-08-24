@@ -114,7 +114,7 @@ public class MainController {
     @ResponseBody
     public Map<String, Object> deleteById(@RequestParam("deleteById") Integer id) {
 
-        blogService.deleteById(id);
+//        blogService.deleteById(id);
         Map<String ,Object> map = new HashMap<String, Object>();
 
 
