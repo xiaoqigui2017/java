@@ -14,7 +14,7 @@
     <script src="js/jquery-3.2.1.js" type="text/javascript"></script>
 </head>
 <body>
-
+<span style="color: red">${loginMes}</span>
 <form action="/login" method="post">
     <div class="col-sm-offset-2 col-sm-4">
         <label for="username">用户名</label>

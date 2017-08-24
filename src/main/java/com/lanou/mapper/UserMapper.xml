@@ -38,7 +38,9 @@
         INSERT  INTO  b_user  VALUES (NULL , #{name} , #{password},#{level},#{des},#{tel},#{address})
     </insert>
 
-
+    <select id="findUserByName" resultMap="BaseMap1">
+        SELECT * from b_user WHERE name = #{name}
+    </select>
 
 
 

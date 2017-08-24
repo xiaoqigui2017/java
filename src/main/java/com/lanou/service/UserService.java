@@ -8,7 +8,7 @@ public interface UserService {
 
     User login(String name, String password);
 
-    Integer register(User user);
+    Integer register(User user,String passwordAgain);
 
 
 

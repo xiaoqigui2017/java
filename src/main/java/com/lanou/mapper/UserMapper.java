@@ -12,4 +12,6 @@ public interface UserMapper {
 
     User selectUserById(@Param("userId")Integer userId);
 
+    //    注册的判断用户名是否已经有了 登录-通过名字查到这个人
+    User findUserByName(String name);
 }
