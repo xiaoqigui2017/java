@@ -68,18 +68,26 @@ public class MainController {
     public String login(HttpServletRequest request,
                         @RequestParam("username") String name,
                         @RequestParam("password") String password) {
+        HttpSession session = request.getSession();
+        session.removeAttribute("loginMes");
         User user = userService.login(name, password);
         if (user != null) {
-            HttpSession session = request.getSession();
-            session.setAttribute("user", user);
+           session.setAttribute("user", user);
             return "redirect:showBlogPage";
         }
+           session.setAttribute("loginMes","用户名密码错误,请重新登录");
         return "redirect:/";
     }
 
     @RequestMapping(value = "/register")
-    public String register(User user, @Param("passwordAgain") String passwordAgain) {
-        Integer i = userService.register(user);
+    public String register(HttpServletRequest request,User user, @Param("passwordAgain") String passwordAgain) {
+        request.getSession().removeAttribute("registerMsg");
+        System.out.println("passwordAgain"+passwordAgain);
+        Integer i = userService.register(user,passwordAgain);
+        if (i==0){
+            request.getSession().setAttribute("registerMsg","密码不一致或用户名被占用,请重新注册");
+            return "/user/register";
+        }
         return "redirect:/";
     }
 
