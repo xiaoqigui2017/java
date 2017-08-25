@@ -16,11 +16,9 @@ public interface BlogMapper {
 
      Blog  findBlogById(@Param("id")Integer id);
 
+     Integer deleteById(@Param("id")Integer id );
 
 
-
-
-
-
+     List<Blog> selectLike(@Param("str") String str);
 
 }

@@ -43,7 +43,7 @@ public class MainController {
 
 
     @RequestMapping(value = "/showBlogTitlePage")
-     public String showBlogTitlePage() {
+    public String showBlogTitlePage() {
 
         return "/blog/showblogtitle";
     }
@@ -109,29 +109,22 @@ public class MainController {
     }
 
 
-
     @RequestMapping(value = "/deleteById")
     @ResponseBody
     public Map<String, Object> deleteById(@RequestParam("deleteById") Integer id) {
-
-//        blogService.deleteById(id);
-        Map<String ,Object> map = new HashMap<String, Object>();
-
-
+        Integer dId = blogService.deleteById(id);
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("obj", dId);
         return map;
     }
 
 
-
-
-
-
-
-
-
-
-
-
+    @RequestMapping(value = "/AdvancedQuery")
+    @ResponseBody
+    public List<Blog> AdvancedQuery(@RequestParam("fuzzyQuery") String   str  ) {
+        List<Blog> blogs = blogService.selectLike(str);
+        return blogs;
+    }
 
 
 }

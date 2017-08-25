@@ -19,7 +19,10 @@ public interface BlogService {
 
     Blog findBlogById(Integer id);
 
-//    Integer deleteById(Integer id);
+    Integer deleteById(Integer id);
+
+       List<Blog>  selectLike(String str);
+
 
 
 }

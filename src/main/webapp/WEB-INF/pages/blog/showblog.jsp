@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: dllo
-  Date: 17/8/21
-  Time: 09:31
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java"  isELIgnored="false"  %>
 
 
@@ -33,14 +27,15 @@
         <!— Collect the nav links, forms, and other content for toggling —>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/addBlogPage">新建博客 <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="/addBlogPage">新建博客<span class="sr-only">(current)</span></a></li>
                 <%--<li><a href="#">查看博客</a></li>--%>
             </ul>
-            <form class="navbar-form navbar-left">
+            <form class="navbar-form navbar-left" id="myform">
+                <%--method="post" action="/AdvancedQuery"--%>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="搜索内容..">
+                    <input type="text" name="fuzzyQuery" id="fuzzyQuery"   class="form-control" placeholder="搜索内容..">
                 </div>
-                <button type="submit" class="btn btn-default">提交</button>
+                <button type="button"  class="btn btn-default">提交</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">${sessionScope.user.name} </a></li>
@@ -88,7 +83,7 @@
         var tdright1 =  $("<td></td>");
         $("<a href ='#'></a>").html(title).appendTo(tdleft).attr("titleId",id).click(showBlogTitle);
         $("<a href='#'>删除</a>").appendTo(tdright1).attr("deleteById",id).click(delfunc);
-        var trOb = $("<tr></tr>").append(tdleft).append(tdright).append(tdright1).attr("id", "ss" + id);
+        var trOb = $("<tr class='hh'></tr>").append(tdleft).append(tdright).append(tdright1).attr("id", "ss" + id);
         $("#tab").append(trOb)
     }
 
@@ -115,6 +110,7 @@
             },
             success: function (result) {
                 console.log(result);
+                $("#ss"+result.obj).remove()
             }
         });
     }
@@ -133,6 +129,14 @@
             }
         });
     }
+
+    
+    
+
+
+
+
+
 
 
 

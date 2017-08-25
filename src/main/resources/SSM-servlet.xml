@@ -24,18 +24,18 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <!--<mvc:interceptors>-->
+    <mvc:interceptors>
 
-        <!--<mvc:interceptor>-->
-            <!--&lt;!&ndash;拦截所有的路径&ndash;&gt;-->
-            <!--<mvc:mapping path="/**"/>-->
-            <!--&lt;!&ndash;白名单不拦截的方法&ndash;&gt;-->
-            <!--<mvc:exclude-mapping path="/login"/>-->
-            <!--<mvc:exclude-mapping path="/registerPage"/>-->
-            <!--<mvc:exclude-mapping path="/register"/>-->
-            <!--<bean class="com.lanou.interceptor.LoginInterceptor"/>-->
-        <!--</mvc:interceptor>-->
-    <!--</mvc:interceptors>-->
+        <mvc:interceptor>
+            <!--拦截所有的路径-->
+            <mvc:mapping path="/**"/>
+            <!--白名单不拦截的方法-->
+            <mvc:exclude-mapping path="/login"/>
+            <mvc:exclude-mapping path="/registerPage"/>
+            <mvc:exclude-mapping path="/register"/>
+            <bean class="com.lanou.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 
 </beans>

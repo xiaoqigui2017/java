@@ -38,7 +38,7 @@
     <div class="form-group">
         <label for="describe" class="col-sm-2 control-label">内容</label>
         <div class="col-sm-10">
-            <textarea class="form-control"  name="content"  rows="5">请输入内容</textarea>
+            <textarea class="form-control"  placeholder="请输入内容"  name="content"  rows="5"></textarea>
         </div>
     </div>
 

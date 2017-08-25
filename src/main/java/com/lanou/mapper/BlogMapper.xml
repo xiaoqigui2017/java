@@ -27,15 +27,19 @@
     </select>
 
 
-      <select id="findBlogById" resultMap="BaseMap" parameterType="Integer">
+    <select id="findBlogById" resultMap="BaseMap" parameterType="Integer">
          SELECT  * FROM b_blog WHERE id=#{id}
     </select>
 
 
+    <select id="selectLike" resultMap="BaseMap" parameterType="String">
+           SELECT  *  FROM   b_blog  where title LIKE #{str}
+    </select>
 
 
-
-
+    <delete id="deleteById" parameterType="Integer">
+        delete from b_blog   where id = #{id}
+    </delete>
 
 
 </mapper>

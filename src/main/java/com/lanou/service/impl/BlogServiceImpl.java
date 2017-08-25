@@ -43,16 +43,20 @@ public class BlogServiceImpl implements BlogService{
     }
 
     public Blog findBlogById(Integer id) {
-
         return mapper.findBlogById(id);
     }
 
-//    public Integer deleteById(Integer id) {
+    public Integer deleteById(Integer id) {
+        Integer count = mapper.deleteById(id);
 
+        return   id;
+    }
 
-
-//        return  mapper.deleteById(id);
-//    }
+    public List<Blog> selectLike(String str) {
+        String str1= "%"+str+"%";
+        System.out.println(str1);
+        return mapper.selectLike(str1);
+    }
 
 }
 
